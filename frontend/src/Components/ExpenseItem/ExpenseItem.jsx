@@ -1,27 +1,29 @@
-import { bitcoin, card, freelance, money, piggy, stocks, users, yt, rupee, calender, comment, trash } from "../../Utils/icons";
+import { bitcoin, book, calender, card, circle, clothing, comment, rupee, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from "../../Utils/icons";
 import Button from "../Button/Button";
 
-const IncomeItem = ({ id, title, amount, date, category, description, deleteItem }) => {
+const ExpenseItem = ({ id, title, amount, date, category, description, deleteItem }) => {
 
-    // Category Icon logic for Income
-    const categoryIcon = () => {
+    // Expense Category Icon logic
+    const expenseCategoryIcon = () => {
         switch (category) {
-            case "Salary":
-                return money;
-            case "Freelancing":
+            case "education":
+                return book;
+            case "groceries":
+                return food;
+            case "health":
+                return medical;
+            case "subscriptions":
+                return tv;
+            case "takeaway":
+                return takeaway;
+            case "clothing":
+                return clothing;
+            case "travelling":
                 return freelance;
-            case "investments":
-                return stocks;
-            case "stocks":
-                return users;
-            case "bitcoin":
-                return bitcoin;
-            case "bank":
-                return card;
-            case "youtube":
-                return yt;
+            case "other":
+                return circle;
             default:
-                return piggy; // Default fallback icon for income
+                return circle; // Default fallback
         }
     };
 
@@ -31,7 +33,7 @@ const IncomeItem = ({ id, title, amount, date, category, description, deleteItem
             {/* Icon Section */}
             <div className="flex-shrink-0 bg-transparent p-3 rounded-full">
                 <span className="flex items-center justify-center text-white text-4xl">
-                    {categoryIcon()}
+                    {expenseCategoryIcon()}
                 </span>
             </div>
 
@@ -62,4 +64,4 @@ const IncomeItem = ({ id, title, amount, date, category, description, deleteItem
     );
 };
 
-export default IncomeItem;
+export default ExpenseItem;
