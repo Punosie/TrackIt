@@ -37,20 +37,19 @@ const ExpenseItem = ({ id, title, amount, date, category, description, deleteIte
       </div>
 
       {/* Content Section */}
-      <div className="flex-grow items-center ">
+      <div className="flex-grow">
         <h5 className="text-lg font-semibold text-white">{title}</h5>
-        <p className="text-sm text-gray-300 flex items-center gap-2 mb-1">
-          <span className="text-2xl flex items-center py-1
-          ">{rupee}</span>{amount}
-        </p>
-        <p className="text-sm text-gray-300 flex items-center gap-2 mb-1">
-          <span className="text-2xl flex items-center py-1
-          ">{calender}</span>{date}  {/* Display the formatted date */}
-        </p>
-        <p className="text-sm text-gray-300 flex items-center gap-2">
-          <span className="text-2xl flex items-center py-1
-          ">{comment}</span>{description}
-        </p>
+        <div className="flex flex-wrap gap-2">
+            <p className="text-sm text-gray-300 flex items-center gap-2 mb-1">
+            <span className="text-xl p-1">{rupee}</span>{amount}
+            </p>
+            <p className="text-sm text-gray-300 flex items-center gap-2 mb-1">
+            <span className="text-xl p-1">{calender}</span>{date}  {/* Display the formatted date */}
+            </p>
+            <p className="text-sm text-gray-300 flex items-center gap-2">
+            <span className="text-xl p-1">{comment}</span>{description}
+            </p>
+        </div>
       </div>
 
       {/* Button Section */}
