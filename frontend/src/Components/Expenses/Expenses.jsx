@@ -3,6 +3,14 @@ import { useGlobalContext } from "../../Context/GlobalContext";
 import { useEffect } from "react";
 import ExpenseItem from "../ExpenseItem/ExpenseItem";
 
+const formatDate = (date) => {
+  const newDate = new Date(date);
+  const day = String(newDate.getDate()).padStart(2, "0");
+  const month = String(newDate.getMonth() + 1).padStart(2, "0"); // months are 0-indexed
+  const year = newDate.getFullYear();
+  return `${day}/${month}/${year}`;
+};
+
 const Expenses = () => {
   const { getExpenses, expenses, deleteExpense, totalExpense } = useGlobalContext();
 
@@ -39,13 +47,16 @@ const Expenses = () => {
                 expenses.map((expense) => {
                   const { _id, title, amount, date, category, description } = expense;
 
+                  // Format the date before passing it to ExpenseItem
+                  const formattedDate = formatDate(date);
+
                   return (
                     <ExpenseItem
                       key={_id}
                       id={_id}
                       title={title}
                       amount={amount}
-                      date={date}
+                      date={formattedDate}
                       category={category}
                       description={description}
                       deleteItem={deleteExpense}

@@ -92,7 +92,7 @@ const Form = () => {
           className="w-full px-4 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none dark:bg-gray-800 dark:border-gray-600 dark:text-white"
         >
           <option value="" disabled>
-            Select Option
+            Select Income Category
           </option>
           <option value="salary">Salary</option>
           <option value="freelancing">Freelancing</option>
